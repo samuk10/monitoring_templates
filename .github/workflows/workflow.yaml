@@ -47,7 +47,7 @@ jobs:
           echo "## Índice de Monitoring Templates" >> README.md
           echo "" >> README.md
           for branch in ${{ steps.get_branches.outputs.branches }}; do
-            echo "- 👉 [$branch](https://github.com/samuk10/monitoring_templates/tree/$branch)" >> README.md
+            echo "- [$branch](https://github.com/samuk10/monitoring_templates/tree/$branch)" >> README.md
           done
           echo "" >> README.md
           echo "## Como Navegar no Repositório" >> README.md
