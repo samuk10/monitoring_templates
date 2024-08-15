@@ -1,0 +1,5479 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Dashboard to display metrics",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 13365,
+  "graphTooltip": 2,
+  "id": 116,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 76,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "System",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The time seconds since the network management portion of the system was last re-initialized.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "86400": {
+                  "index": 0,
+                  "text": "1 Dia"
+                },
+                "2592000": {
+                  "index": 1,
+                  "text": "123"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "index": 2,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 5592000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 86400
+              },
+              {
+                "color": "super-light-yellow",
+                "value": 172800
+              },
+              {
+                "color": "super-light-green",
+                "value": 604800
+              },
+              {
+                "color": "green",
+                "value": 2592000
+              }
+            ]
+          },
+          "unit": "dtdhms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 2,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "Uptime"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "query": "SELECT \"sysUpTime\"  / 100 FROM \"snmp.UPS\" WHERE (\"agent_host\" =~ /^$host$/) AND $timeFilter",
+          "queryType": "0",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sysUpTime"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Uptime",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The time seconds since the network management portion of the system was last re-initialized.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "2": {
+                  "color": "green",
+                  "index": 3,
+                  "text": "100%"
+                },
+                "6": {
+                  "color": "green",
+                  "index": 4,
+                  "text": "100%"
+                },
+                "256": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "100%"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "index": 0,
+                  "text": "Sem Coleta ou Zerada"
+                }
+              },
+              "type": "special"
+            },
+            {
+              "options": {
+                "from": 100000000000,
+                "result": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "100%"
+                },
+                "to": 10000000000000
+              },
+              "type": "range"
+            }
+          ],
+          "max": 36000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 3600
+              },
+              {
+                "color": "super-light-yellow",
+                "value": 7200
+              },
+              {
+                "color": "super-light-green",
+                "value": 10800
+              },
+              {
+                "color": "green",
+                "value": 14400
+              }
+            ]
+          },
+          "unit": "dtdhms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/Tempo Backup Bateriaa/"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "Horas"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 81,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Tempo estimado para zerar a Bateria|Tempo Backup Bateria)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "query": "SELECT \"sysUpTime\"  / 100 FROM \"snmp.UPS\" WHERE (\"agent_host\" =~ /^$host$/) AND $timeFilter",
+          "queryType": "0",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sysUpTime"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tempo restante da bateria",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The magnitude of the system load current in units\nof 0.1A. Range between 0 to +10kA.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 1,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 70,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-orange",
+                "value": 30
+              },
+              {
+                "color": "orange",
+                "value": 40
+              },
+              {
+                "color": "dark-orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 6,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 73,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "Corrente de Carga do Sistema"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Corrente de Carga do Sistema",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Modelo",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 14,
+        "y": 1
+      },
+      "hideTimeOverride": false,
+      "id": 53,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^System description$/",
+          "values": false
+        },
+        "text": {
+          "valueSize": 12
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "System description"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "2",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsBasicBatteryTimeOnBattery"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Modelo",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Manufacturer",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 19,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 52,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^PHB::identManufacturer$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "PHB::identManufacturer"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "2",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsBasicBatteryTimeOnBattery"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "timeFrom": "1h",
+      "title": "Fabricante",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Battery Test Alarm Status. It is ON when the Battery\n is being testing.\n \n (=1)ON (=2)OFF (=3)UNUSED",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "index": 0,
+                  "text": "EM TESTE"
+                },
+                "2": {
+                  "index": 1,
+                  "text": "OFF"
+                },
+                "3": {
+                  "index": 2,
+                  "text": "N/A"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 22,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 36,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "Status do alarme de teste de bateria"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvTestDiagnosticsResults"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "timeFrom": "5m",
+      "title": "Teste de Bateria",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Control Unit Serial Number.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 14,
+        "y": 3
+      },
+      "hideTimeOverride": true,
+      "id": 59,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/Serial/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "2",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsBasicBatteryTimeOnBattery"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "useCaptureGroups": false
+        }
+      ],
+      "timeFrom": "1h",
+      "title": "Control Unit Serial Number",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The firmware (software) version of the controller.",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "red",
+                  "index": 1
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 19,
+        "y": 3
+      },
+      "hideTimeOverride": true,
+      "id": 37,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^PHB::identControllerFirmwareVersion$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "PHB::identControllerFirmwareVersion"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "2",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsBasicBatteryTimeOnBattery"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "timeFrom": "1h",
+      "title": "Firmware Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Battery Alarm Status. It is ON when it happens\n a fail with Battery (String / Bank).\n \n (=1)ON (=2)OFF (=3)UNUSED",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "(PHB)Bateria com Falha"
+                },
+                "2": {
+                  "index": 1,
+                  "text": "(PHB)Bateria sem Falha"
+                },
+                "3": {
+                  "color": "dark-orange",
+                  "index": 3,
+                  "text": "(VERTIV)WANRING"
+                },
+                "6": {
+                  "index": 4,
+                  "text": "(VERTIV)CRITICAL"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 2
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              },
+              {
+                "color": "green",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 22,
+        "y": 3
+      },
+      "hideTimeOverride": true,
+      "id": 42,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Status do alarme da bateria|Low Capacity, its owner: Battery1)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvBatteryReplaceIndicator"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "timeFrom": "5m",
+      "title": "Battery Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The magnitude of the system output voltage in\nunits of 0.1V DC. Range -500V to +500V.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 0,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 260,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "light-orange",
+                "value": 206
+              },
+              {
+                "color": "dark-green",
+                "value": 208
+              },
+              {
+                "color": "dark-orange",
+                "value": 234
+              },
+              {
+                "color": "red",
+                "value": 253
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 5
+      },
+      "hideTimeOverride": true,
+      "id": 71,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Tensão de saída do Sistema|^Tensão de Saida DC$)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tensão de Saída",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Cada Virgula separa uma UR, se o valor for XXX significa que está desativada.\nMultiplicar por x10 para a medida ficar em Ampere.\n\nThe magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 0
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 3,
+        "x": 3,
+        "y": 5
+      },
+      "hideTimeOverride": true,
+      "id": 89,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {
+          "titleSize": 10
+        }
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/Corrente Modulos RU\\: [1-4]$/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "2",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "useCaptureGroups": false
+        },
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [
+            {
+              "$$hashKey": "object:92",
+              "def": {
+                "category": "Alias",
+                "defaultParams": [
+                  "/(.*)/",
+                  "$1"
+                ],
+                "name": "replaceAlias",
+                "params": [
+                  {
+                    "name": "regexp",
+                    "type": "string"
+                  },
+                  {
+                    "name": "newAlias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "/$query0: (.*)/",
+                "$1"
+              ],
+              "text": "replaceAlias(/$query0: (.*)/, $1)"
+            }
+          ],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/Corrente Modulos RU\\: ./"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "useCaptureGroups": false
+        },
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [
+            {
+              "$$hashKey": "object:114",
+              "added": false,
+              "def": {
+                "category": "Alias",
+                "defaultParams": [
+                  "/(.*)/",
+                  "$1"
+                ],
+                "name": "replaceAlias",
+                "params": [
+                  {
+                    "name": "regexp",
+                    "type": "string"
+                  },
+                  {
+                    "name": "newAlias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "/$query0: (.*)/",
+                "$1"
+              ],
+              "text": "replaceAlias(/$query0: (.*)/, $1)"
+            }
+          ],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/Rectifier.\\: Corrente de saída DC/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          },
+          "useCaptureGroups": false
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {
+              "Corrente Modulos RU: 1": 1,
+              "Corrente Modulos RU: 2": 2,
+              "Corrente Modulos RU: 3": 3,
+              "Corrente Modulos RU: 4": 4,
+              "Time": 0
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Ping Simples",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "ICMP DOWN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "ICMP UP"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 2,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 6,
+        "y": 5
+      },
+      "hideTimeOverride": true,
+      "id": 61,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "Zabbix",
+            "uid": "-9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "ICMP ping"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Ping Simples",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "/.*Temperatura.*/\nStatus Sensor Temperatura da Bateria",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#808080",
+                  "index": 0,
+                  "text": "N/A"
+                },
+                "999": {
+                  "color": "#808080",
+                  "index": 1,
+                  "text": "N/A"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#808080",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 68
+              },
+              {
+                "color": "transparent",
+                "value": 999
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 7,
+        "x": 10,
+        "y": 5
+      },
+      "id": 91,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.1.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [
+            {
+              "$$hashKey": "object:61",
+              "def": {
+                "category": "Alias",
+                "defaultParams": [
+                  "/(.*)/",
+                  "$1"
+                ],
+                "name": "replaceAlias",
+                "params": [
+                  {
+                    "name": "regexp",
+                    "type": "string"
+                  },
+                  {
+                    "name": "newAlias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "/$query0: (.*)/",
+                "$1"
+              ],
+              "text": "replaceAlias(/$query0: (.*)/, $1)"
+            }
+          ],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/.*Temperatura.*/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Temperatura",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Status Sensor Temperatura da Bateria": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The remaining battery capacity expressed in\npercent of full capacity.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 20
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 30
+              },
+              {
+                "color": "green",
+                "value": 40
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 7,
+        "x": 17,
+        "y": 5
+      },
+      "hideTimeOverride": true,
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [
+            {
+              "$$hashKey": "object:88",
+              "def": {
+                "category": "Alias",
+                "defaultParams": [
+                  "/(.*)/",
+                  "$1"
+                ],
+                "name": "replaceAlias",
+                "params": [
+                  {
+                    "name": "regexp",
+                    "type": "string"
+                  },
+                  {
+                    "name": "newAlias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "/$query0: (.*)/",
+                "$1"
+              ],
+              "text": "replaceAlias(/$query0: (.*)/, $1)"
+            }
+          ],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/Porcentagem da Bateria|Porcentagem Total das Baterias/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvBatteryCapacity"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Capacidade da Bateria",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Tempo de resposta",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 1,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 6,
+        "y": 7
+      },
+      "hideTimeOverride": true,
+      "id": 60,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "Zabbix",
+            "uid": "-9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "ICMP response time"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tempo de resposta",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 0,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 260,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 187
+              },
+              {
+                "color": "light-orange",
+                "value": 206
+              },
+              {
+                "color": "dark-green",
+                "value": 208
+              },
+              {
+                "color": "dark-orange",
+                "value": 234
+              },
+              {
+                "color": "red",
+                "value": 253
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 8
+      },
+      "hideTimeOverride": true,
+      "id": 46,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Tensão de entrada do Sistema Fase A|Tensão de fase da rede L1)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tensão de Entrada InputA",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Perda de Pacotes",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 1,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 6,
+        "y": 9
+      },
+      "hideTimeOverride": true,
+      "id": 62,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "Zabbix",
+            "uid": "-9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "ICMP loss"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Perda de Pacotes",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 0
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 260,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 187
+              },
+              {
+                "color": "light-orange",
+                "value": 206
+              },
+              {
+                "color": "dark-green",
+                "value": 208
+              },
+              {
+                "color": "dark-orange",
+                "value": 234
+              },
+              {
+                "color": "red",
+                "value": 253
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 11
+      },
+      "hideTimeOverride": true,
+      "id": 82,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Tensão de entrada do Sistema Fase B|Tensão de fase da rede L2)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tensão de Entrada InputB",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "Corrente Total das Baterias\nThe magnitude of the system battery current in\nunits of 0.1A. Range between -5kA to +5kA.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "semi-dark-red",
+                  "index": 0,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 6
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 6,
+        "y": 11
+      },
+      "hideTimeOverride": true,
+      "id": 74,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [
+            {
+              "$$hashKey": "object:61",
+              "def": {
+                "category": "Alias",
+                "defaultParams": [
+                  "/(.*)/",
+                  "$1"
+                ],
+                "name": "replaceAlias",
+                "params": [
+                  {
+                    "name": "regexp",
+                    "type": "string"
+                  },
+                  {
+                    "name": "newAlias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "/$query0: (.*)/",
+                "$1"
+              ],
+              "text": "replaceAlias(/$query0: (.*)/, $1)"
+            }
+          ],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Corrente da Bateria|Corrente Total das Baterias)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Corrente da Bateria",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "The magnitude of the system input voltage (Phase\n C) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "index": 0,
+                  "text": "DOWN"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 260,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 187
+              },
+              {
+                "color": "light-orange",
+                "value": 206
+              },
+              {
+                "color": "dark-green",
+                "value": 208
+              },
+              {
+                "color": "dark-orange",
+                "value": 234
+              },
+              {
+                "color": "red",
+                "value": 253
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 14
+      },
+      "hideTimeOverride": true,
+      "id": 70,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "alias": "$tag_agent_host",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "agent_host"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": "/(Tensão de entrada do Sistema Fase C|Tensão de fase da rede L3)/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "measurement": "snmp.UPS",
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "orderByTime": "ASC",
+          "policy": "default",
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upsAdvOutputActivePower"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": [
+            {
+              "key": "agent_host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            }
+          ],
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Tensão de Entrada InputC",
+      "type": "stat"
+    },
+    {
+      "ackEventColor": "rgb(56, 219, 156)",
+      "ackField": true,
+      "ageField": true,
+      "customLastChangeFormat": false,
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "description": "",
+      "descriptionAtNewLine": false,
+      "descriptionField": true,
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "highlightBackground": false,
+      "highlightNewEvents": false,
+      "highlightNewerThan": "1h",
+      "hostField": false,
+      "hostGroups": false,
+      "hostProxy": false,
+      "hostTechNameField": false,
+      "id": 64,
+      "lastChangeFormat": "",
+      "layout": "table",
+      "markAckEvents": false,
+      "okEventColor": "rgb(56, 189, 113)",
+      "pageSize": 10,
+      "pluginVersion": "8.1.5",
+      "problemTimeline": true,
+      "resizedColumns": [],
+      "schemaVersion": 8,
+      "severityField": true,
+      "showTags": true,
+      "sortProblems": "lastchange",
+      "statusField": true,
+      "statusIcon": true,
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "functions": [],
+          "group": {
+            "filter": "RETIFICADORAS"
+          },
+          "host": {
+            "filter": "$query0"
+          },
+          "item": {
+            "filter": ""
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "options": {
+            "acknowledged": 2,
+            "disableDataAlignment": false,
+            "hostProxy": false,
+            "hostsInMaintenance": false,
+            "limit": 1001,
+            "minSeverity": 0,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "sortProblems": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "5",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "showProblems": "problems",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 4
+          }
+        }
+      ],
+      "title": "Eventos",
+      "transparent": true,
+      "triggerSeverity": [
+        {
+          "$$hashKey": "object:98",
+          "color": "rgb(108, 108, 108)",
+          "priority": 0,
+          "severity": "Not classified",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:99",
+          "color": "rgb(120, 158, 183)",
+          "priority": 1,
+          "severity": "Information",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:100",
+          "color": "rgb(175, 180, 36)",
+          "priority": 2,
+          "severity": "Warning",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:101",
+          "color": "rgb(255, 137, 30)",
+          "priority": 3,
+          "severity": "Average",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:102",
+          "color": "rgb(255, 101, 72)",
+          "priority": 4,
+          "severity": "High",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:103",
+          "color": "rgb(215, 0, 0)",
+          "priority": 5,
+          "severity": "Disaster",
+          "show": true
+        }
+      ],
+      "type": "alexanderzobnin-zabbix-triggers-panel"
+    },
+    {
+      "collapsed": true,
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "9A2JMupnz"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 78,
+      "panels": [
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "description": "Cada Virgula separa uma UR, se o valor for XXX significa que está desativada.\nMultiplicar por x10 para a medida ficar em Ampere.\n\nThe magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null+nan",
+                    "result": {
+                      "color": "semi-dark-red",
+                      "index": 0
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "amp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 0,
+            "y": 30
+          },
+          "hideTimeOverride": true,
+          "id": 65,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 1"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "2",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            },
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 1"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "0",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            }
+          ],
+          "title": "Corrente Modulos RU: 1",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "description": "Cada Virgula separa uma UR, se o valor for XXX significa que está desativada.\nMultiplicar por x10 para a medida ficar em Ampere.\n\nThe magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null+nan",
+                    "result": {
+                      "color": "semi-dark-red",
+                      "index": 0
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "amp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 3,
+            "y": 30
+          },
+          "hideTimeOverride": true,
+          "id": 83,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 2"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "2",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            },
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 2"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "0",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            }
+          ],
+          "title": "Corrente Modulos RU: 2",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "description": "Cada Virgula separa uma UR, se o valor for XXX significa que está desativada.\nMultiplicar por x10 para a medida ficar em Ampere.\n\nThe magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null+nan",
+                    "result": {
+                      "color": "semi-dark-red",
+                      "index": 0
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "amp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 6,
+            "y": 30
+          },
+          "hideTimeOverride": true,
+          "id": 84,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 3"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "2",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            },
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 3"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "0",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            }
+          ],
+          "title": "Corrente Modulos RU: 3",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "description": "Cada Virgula separa uma UR, se o valor for XXX significa que está desativada.\nMultiplicar por x10 para a medida ficar em Ampere.\n\nThe magnitude of the system input voltage (Phase\n A) in units of 1V RMS, in single phase system\n this phase is the input voltage. Range between\n 0 to +500V. For Remote Power Feeding this measure\n is associated with the DC input A. In units of\n 0.1V DC. Range 0V to +1000V.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null+nan",
+                    "result": {
+                      "color": "semi-dark-red",
+                      "index": 0
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "amp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 9,
+            "y": 30
+          },
+          "hideTimeOverride": true,
+          "id": 85,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 4"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "2",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            },
+            {
+              "alias": "$tag_agent_host",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "agent_host"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "Corrente Modulos RU: 4"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "0",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvOutputActivePower"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "textFilter": "",
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              },
+              "useCaptureGroups": false
+            }
+          ],
+          "title": "Corrente Modulos RU: 4",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 2,
+            "x": 0,
+            "y": 33
+          },
+          "id": 26,
+          "options": {
+            "code": {
+              "language": "plaintext",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "<p style=\"text-align:center; vertical-align: middle;\">\r\n<img src=\"https://br.all.biz/img/br/catalog/37975.jpeg\" style=\"background-color:blue\" height=\"125\" alt=\"CONECT\"/>\r\n</p>",
+            "mode": "html"
+          },
+          "pluginVersion": "9.4.3",
+          "repeatDirection": "h",
+          "targets": [
+            {
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "refId": "A"
+            }
+          ],
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "description": "VERDE = ALARME OFF\nVERMELHO = ALARME ON  \nCINZA = ALARME DESATIVADO",
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [
+                {
+                  "options": {
+                    "1": {
+                      "color": "semi-dark-red",
+                      "index": 0,
+                      "text": "ON"
+                    },
+                    "2": {
+                      "color": "semi-dark-green",
+                      "index": 1,
+                      "text": "OFF"
+                    },
+                    "3": {
+                      "color": "#808080",
+                      "index": 2,
+                      "text": "DISABLED"
+                    }
+                  },
+                  "type": "value"
+                },
+                {
+                  "options": {
+                    "match": "null",
+                    "result": {
+                      "color": "semi-dark-red",
+                      "index": 3,
+                      "text": "DOWN"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 12,
+            "x": 0,
+            "y": 37
+          },
+          "hideTimeOverride": true,
+          "id": 80,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 10
+            },
+            "textMode": "name"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "alexanderzobnin-zabbix-datasource",
+                "uid": "9A2JMupnz"
+              },
+              "functions": [
+                {
+                  "$$hashKey": "object:581",
+                  "def": {
+                    "category": "Alias",
+                    "defaultParams": [
+                      "/(.*)/",
+                      "$1"
+                    ],
+                    "name": "replaceAlias",
+                    "params": [
+                      {
+                        "name": "regexp",
+                        "type": "string"
+                      },
+                      {
+                        "name": "newAlias",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "/$query0: Status do alarme (.*)/",
+                    "$1"
+                  ],
+                  "text": "replaceAlias(/$query0: Status do alarme (.*)/, $1)"
+                },
+                {
+                  "$$hashKey": "object:582",
+                  "def": {
+                    "category": "Alias",
+                    "defaultParams": [
+                      "/(.*)/",
+                      "$1"
+                    ],
+                    "name": "replaceAlias",
+                    "params": [
+                      {
+                        "name": "regexp",
+                        "type": "string"
+                      },
+                      {
+                        "name": "newAlias",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "/de|do|da (.*)/",
+                    "$1"
+                  ],
+                  "text": "replaceAlias(/de|do|da (.*)/, $1)"
+                }
+              ],
+              "group": {
+                "filter": "RETIFICADORAS"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "none"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$query0"
+              },
+              "item": {
+                "filter": "/Status do alarme/"
+              },
+              "itemTag": {
+                "filter": ""
+              },
+              "measurement": "snmp.UPS",
+              "options": {
+                "disableDataAlignment": false,
+                "showDisabledItems": false,
+                "skipEmptyValues": false,
+                "useZabbixValueMapping": false
+              },
+              "orderByTime": "ASC",
+              "policy": "default",
+              "proxy": {
+                "filter": ""
+              },
+              "queryType": "0",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "upsAdvTestDiagnosticsResults"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "table": {
+                "skipEmptyValues": false
+              },
+              "tags": [
+                {
+                  "key": "agent_host",
+                  "operator": "=~",
+                  "value": "/^$host$/"
+                }
+              ],
+              "trigger": {
+                "filter": ""
+              },
+              "triggers": {
+                "acknowledged": 2,
+                "count": true,
+                "minSeverity": 3
+              }
+            }
+          ],
+          "title": "Status dos Alarmes",
+          "transformations": [
+            {
+              "disabled": true,
+              "id": "reduce",
+              "options": {}
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "9A2JMupnz"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Network",
+      "type": "row"
+    }
+  ],
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [
+    "snmp"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "RETIFICADORA-PHB-MARICA",
+          "value": "RETIFICADORA-PHB-MARICA"
+        },
+        "datasource": {
+          "type": "alexanderzobnin-zabbix-datasource",
+          "uid": "9A2JMupnz"
+        },
+        "definition": "Zabbix - host",
+        "hide": 0,
+        "includeAll": false,
+        "label": "RETIFICADORA",
+        "multi": false,
+        "name": "query0",
+        "options": [],
+        "query": {
+          "application": "",
+          "group": "RETIFICADORAS",
+          "host": "/.*/",
+          "item": "",
+          "itemTag": "",
+          "queryType": "host"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "RETIFICADORA [OLD]",
+  "uid": "90BMXO6Vk",
+  "version": 10,
+  "weekStart": ""
+}

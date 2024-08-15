@@ -1,0 +1,2809 @@
+zabbix_export:
+  version: '5.4'
+  date: '2024-08-15T13:33:49Z'
+  groups:
+    -
+      uuid: 3dcd5bbe90534f9e8eb5c2d53756af63
+      name: Templates/Power
+  templates:
+    -
+      uuid: 431f3f893b5243228724f71536771789
+      template: 'Template SNMP PHB Retificadora'
+      name: 'Template SNMP PHB Retificadora'
+      description: |
+        Criado automaticamente com o script By Sean Bradley's SNMP2ZABBIX.py at https://github.com/Sean-Bradley/SNMP2ZABBIX
+        MIB to Template.
+        Todas alterações feitas por mim: Samuel Sampaio Espindola
+        versão da MIB: phbmib1_7
+      templates:
+        -
+          name: 'Generic SNMP'
+      groups:
+        -
+          name: Templates/Power
+      items:
+        -
+          uuid: 0d9d70ce99134139a552beb99cbec9f2
+          name: 'PHB::identManufacturer'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.1.0
+          key: .1.3.6.1.4.1.28636.1.1.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: 'The name of the equipment manufacturer.'
+        -
+          uuid: d3b45ab8b7dd4f328d44c9c6811492f4
+          name: 'PHB::identModel'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.2.0
+          key: .1.3.6.1.4.1.28636.1.2.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: 'PHB Model designation.'
+        -
+          uuid: 25b18402b621448a9a83745fdb8054d8
+          name: 'PHB::identControllerFirmwareVersion'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.3.0
+          key: .1.3.6.1.4.1.28636.1.3.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: 'The firmware (software) version of the controller.'
+        -
+          uuid: 15538fbdc58546eaa2b0501883a2773a
+          name: 'PHB::identName'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.4.0
+          key: .1.3.6.1.4.1.28636.1.4.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            The name of the power plant. This object should
+             be set by the administrator.
+        -
+          uuid: c9a74872418f432fb455bce5b234a7d9
+          name: 'PHB::identControlUnitSerialNumber'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.5.0
+          key: .1.3.6.1.4.1.28636.1.5.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: 'Control Unit Serial Number.'
+        -
+          uuid: 2e178e257ffd40ab9d5f978c3ff3dd61
+          name: 'PHB::identRectifierSerialNumbers'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.6.0
+          key: .1.3.6.1.4.1.28636.1.6.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "Serial Number of the first 12 Rectifiers monitored\r from Control Unit. XXXXX means that the RU isn\\'t\r communicating."
+        -
+          uuid: 86b19813607b4f57975645b6ea86649c
+          name: 'PHB::identAgentSerialNumber'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.7.0
+          key: .1.3.6.1.4.1.28636.1.7.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: 'SNMP Agent Serial Number.'
+        -
+          uuid: aff694c5b36041af9167acb0f0ff41af
+          name: 'PHB::identRectifierSerialNumbers2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.8.0
+          key: .1.3.6.1.4.1.28636.1.8.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "Serial Number from 13 to 24 (12 RUs) Rectifiers\r monitored from Control Unit. XXXXX means that\r the RU isn\\'t communicating."
+        -
+          uuid: ee44eb23802a4f05aa0657c357196401
+          name: 'PHB::identRectifierSerialNumbers3'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.9.0
+          key: .1.3.6.1.4.1.28636.1.9.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "Serial Number from 25 to 36 (12 RUs) Rectifiers\r monitored from Control Unit. XXXXX means that\r the RU isn\\'t communicating."
+        -
+          uuid: 29b34fa3d8d44d1698b48eec401ad631
+          name: 'PHB::identRectifierSerialNumbers4'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.1.10.0
+          key: .1.3.6.1.4.1.28636.1.10.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "Serial Number from 37 to 48 (12 RUs) Rectifiers\r monitored from Control Unit. XXXXX means that\r the RU isn\\'t communicating."
+        -
+          uuid: d28aff096aa4416aa2a3b39a8124bafa
+          name: 'Tensão de saída do Sistema'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.1.0
+          key: .1.3.6.1.4.1.28636.2.1.0
+          delay: 5m
+          history: 2w
+          value_type: FLOAT
+          units: V
+          description: |
+            A magnitude da tensão de saída do sistema em
+              unidades de 0,1 V CC. Faixa de -500V a +500V.
+            
+            PHB::systemOutputVoltage
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+        -
+          uuid: e0ddccf6cc6740c78cd3c608169b4290
+          name: 'Tensão de entrada do Sistema Fase A'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.2.0
+          key: .1.3.6.1.4.1.28636.2.2.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          units: V
+          description: |
+            A magnitude da tensão de entrada do sistema (Fase
+              A) em unidades de 1V RMS, em sistema monofásico
+              esta fase é a tensão de entrada. Intervalo entre
+              0 a +500V. Para Alimentação Remota esta medida
+              está associado à entrada DC A. Em unidades de
+              0,1 V CC. Faixa de 0V a +1000V.
+            
+            PHB::systemInputVoltageA
+          triggers:
+            -
+              uuid: 727e14bc86224c1bb5b8ce26bfcf488a
+              expression: |
+                (min(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.2.0,15m)<={$TEN_ENT.MIN} or 
+                max(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.2.0,15m)>={$TEN_ENT.MAX}) and 
+                last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.2.0)>0
+              name: 'Tensão de Entrada A Fora do Normal'
+              priority: WARNING
+              manual_close: 'YES'
+        -
+          uuid: 4dd25bd8aaa34a6994bf85d8a16b1670
+          name: 'Tensão de entrada do Sistema Fase B'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.3.0
+          key: .1.3.6.1.4.1.28636.2.3.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          units: V
+          description: |
+            A magnitude da tensão de entrada do sistema (Fase
+              B) em unidades de 1V RMS. Faixa de 0 a +500V.
+              Para Remote Power Feeding esta medida está associada
+              com a entrada DC B. Em unidades de 0,1V DC. Alcance
+              0V a +1000V.
+            
+            PHB::systemInputVoltageB
+          triggers:
+            -
+              uuid: 221b79cbfedd4192b060c4c4e339ae81
+              expression: |
+                (min(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.3.0,15m)<={$TEN_ENT.MIN} or 
+                max(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.3.0,15m)>={$TEN_ENT.MAX}) and 
+                last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.3.0)>0
+              name: 'Tensão de Entrada B Fora do Normal'
+              priority: WARNING
+              manual_close: 'YES'
+        -
+          uuid: 8fe30b11037c4c05b992b4dd72997545
+          name: 'Tensão de entrada do Sistema Fase C'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.4.0
+          key: .1.3.6.1.4.1.28636.2.4.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          units: V
+          description: |
+            A magnitude da tensão de entrada do sistema (Fase
+              C) em unidades de 1V RMS. Faixa de 0 a +500V.
+            
+            PHB::systemInputVoltageC
+          triggers:
+            -
+              uuid: 8e2e15e5ccb24f65b6ab167afe78b852
+              expression: |
+                (min(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.4.0,15m)<={$TEN_ENT.MIN} or 
+                max(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.4.0,15m)>={$TEN_ENT.MAX}) and 
+                last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.2.4.0)>0
+              name: 'Tensão de Entrada C Fora do Normal'
+              priority: WARNING
+              manual_close: 'YES'
+        -
+          uuid: 40042056df984aa1a8fa706ca81d5887
+          name: 'Corrente da Bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.5.0
+          key: .1.3.6.1.4.1.28636.2.5.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          units: A
+          description: |
+            A magnitude da corrente da bateria do sistema em
+              unidades de 0,1A. Faixa entre -5kA a +5kA.
+            
+            PHB::systemBatteryCurrent
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+        -
+          uuid: 0bbe13abf3ac482a960a7a118a733768
+          name: 'Corrente de Carga do Sistema'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.6.0
+          key: .1.3.6.1.4.1.28636.2.6.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          units: A
+          description: |
+            A magnitude da corrente de carga do sistema em unidades
+              de 0,1A. Faixa de 0 a +10kA.
+            
+            PHB::systemLoadCurrent
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+        -
+          uuid: 582b177cd87b4d1f89783350f6185f5b
+          name: 'Temperatura da bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.7.0
+          key: .1.3.6.1.4.1.28636.2.7.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          units: C
+          description: |
+            A magnitude da temperatura da bateria do sistema
+              em unidades de 1C. Varia entre -125C a +125C.
+              O valor 999 significa que o sensor de temperatura
+              está desconectado ou não está funcionando.
+            
+            PHB::systemBatteryTemperature
+        -
+          uuid: c2a7303c79af4ec98dd4714fb1c6635a
+          name: 'Temperatura interna do sistema'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.8.0
+          key: .1.3.6.1.4.1.28636.2.8.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          units: C
+          description: |
+            A magnitude da temperatura interna do sistema
+              em unidades de 1C. Varia entre -125C a +125C.
+              O valor 999 significa que o sensor de temperatura
+              está desconectado ou não está funcionando.
+            
+            PHB::systemInternalTemperature
+        -
+          uuid: e0ddfe9b5a084f10bdb72250721636ed
+          name: 'Corrente Modulos RU: 1 ate 18'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.9.0
+          key: .1.3.6.1.4.1.28636.2.9.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              As primeiras 18 correntes RU monitoradas do Controle
+              Unidade. XXX significa que a RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |
+                  var out = "";
+                  for (var i = 0, nums = value.split(" "); i < nums.length; i++) {
+                       out += String.fromCharCode(parseInt(nums[i], 16));
+                  } 
+                  return out;
+        -
+          uuid: e626725951f24fd9a849d6c1d8379f8b
+          name: 'Corrente Modulos RU: 19 ate 36'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.11.0
+          key: .1.3.6.1.4.1.28636.2.11.0
+          delay: 30m
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              RU mediu posições de 19 a 36 (18 RUs),
+              monitorado da Unidade de Controle. XXX significa que o
+              RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents2
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |
+                  var out = "";
+                  for (var i = 0, nums = value.split(" "); i < nums.length; i++) {
+                       out += String.fromCharCode(parseInt(nums[i], 16));
+                  } 
+                  return out;
+        -
+          uuid: 95ce9d78bef14bfa8ed89367d717df5c
+          name: 'Corrente Modulos RU: 37 ate 48'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.12.0
+          key: .1.3.6.1.4.1.28636.2.12.0
+          delay: 30m
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              RU mediu posições de 37 a 48 (12 RUs),
+              monitorado da Unidade de Controle. XXX significa que o
+              RU não está se comunicando. 
+            
+            PHB::systemRectifierCurrents3
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |
+                  var out = "";
+                  for (var i = 0, nums = value.split(" "); i < nums.length; i++) {
+                       out += String.fromCharCode(parseInt(nums[i], 16));
+                  } 
+                  return out;
+        -
+          uuid: 047fac8838dd4dcaad30ed75449f33d3
+          name: 'PHB::systemDCDCOutputVoltagesA'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.13.0
+          key: .1.3.6.1.4.1.28636.2.13.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the DCDC (A) converters output\r voltages in units of 1V RMS. Range between 0\r to +500V. Up to 16 DCDC output voltges can be\r measured, XXX means that the DCDC isn\\'t communicating.\r with the controller. For Power Remote Feeding\r applications this measure is associated with\r A DCDC central converters.\r \r A central module it is composed by 2 DCDC converters\r A and B. ."
+        -
+          uuid: 57fc3cc75f6844b98b989c3b0cfc5bab
+          name: 'PHB::systemDCDCOutputVoltagesB'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.14.0
+          key: .1.3.6.1.4.1.28636.2.14.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the DCDC (B) converters output\r voltages in units of 1V RMS. Range between 0\r to +500V. Up to 16 DCDC output voltges can be\r measured, XXX means that the DCDC isn\\'t communicating.\r with the controller. For Power Remote Feeding\r applications this measure is associated with\r B DCDC central converters.\r \r A central module it is composed by 2 DCDC converters\r A and B."
+        -
+          uuid: 83a9d66fa9024fdd8a835def25dc17d3
+          name: 'PHB::systemDCDCOutputCurrentsA'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.15.0
+          key: .1.3.6.1.4.1.28636.2.15.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: |
+            The magnitude of the DCDC (A) converters output
+             currents in units of 0.1A. Range between 0 to
+             999.9A (0 to 999). The first 16 DCDC converters
+             currents monitored from Control Unit. XXXX means
+             that the converter isn\'t communicating. Range
+             between 0 to 999.9A. . For Power Remote Feeding
+             applications this measure is associated with
+             A DCDC central converters and must be consider
+             the unit mA. A central module it is composed
+             by 2 DCDC converters A and B in one module.
+        -
+          uuid: d8fa84771be34f3e88d6ce983dcf8273
+          name: 'PHB::systemDCDCOutputCurrentsB'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.16.0
+          key: .1.3.6.1.4.1.28636.2.16.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the DCDC (B) converters output\r currents in units of 0.1A. Range between 0 to\r 999.9A (0 to 999). The first 16 DCDC converters\r currents monitored from Control Unit. XXXX means\r that the converter isn\\'t communicating. Range\r between 0 to 999.9A. . For Power Remote Feeding\r applications this measure is associated with\r B DCDC central converters and must be consider\r the unit mA. A central module it is composed\r by 2 DCDC converters A and B in one module."
+        -
+          uuid: 21856da0d3a44ab18987fa14224b65ff
+          name: 'PHB::systemRectifierInputVoltage'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.17.0
+          key: .1.3.6.1.4.1.28636.2.17.0
+          delay: 5m
+          history: 2w
+          status: DISABLED
+          value_type: FLOAT
+          units: V
+          description: |
+            A magnitude do Retificador (RU) / Controlador de Carga
+              tensão de entrada em unidades de 1V RMS, Informar entrada AC
+              tensão no modo Retificador (Entrada CA) . Informar
+              Tensão de entrada DC no modo Charge Controller (DC
+              Entrada Fotovoltaica). Faixa de 0 a (+)999V.
+              XXX significa que o conversor não está se comunicando.
+              Valor 11 em aplicações fotovoltaicas significa entrada invertida
+              conexão. As primeiras tensões de entrada de 18 RU monitoradas
+              da Unidade de Controle.
+            
+            PHB::systemRectifierInputVoltage
+        -
+          uuid: 9386ad2e3f544aa89e23027a62075d34
+          name: 'PHB::systemRectifierInputVoltage2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.18.0
+          key: .1.3.6.1.4.1.28636.2.18.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: |
+            The magnitude of the Rectifier (RU) / Charge Controller
+             input voltage in units of 1V RMS, Inform AC input
+             voltage in Rectifier mode (AC Input) . Inform
+             DC input voltage in Charge Controller mode (DC
+             Photovoltaic Input). Range between 0 to (+)999V.
+             XXX means that the converter isn\'t communicating.
+             Value 11 in PV applications means inverted input
+             connection. RU measured positions from 19 to
+             36 (18 RUs).
+        -
+          uuid: 8874d4f178fe4771ae75368c49d6e433
+          name: 'PHB::systemRectifierInputVoltage3'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.19.0
+          key: .1.3.6.1.4.1.28636.2.19.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: |
+            The magnitude of the Rectifier (RU) / Charge Controller
+             input voltage in units of 1V RMS, Inform AC input
+             voltage in Rectifier mode (AC Input) . Inform
+             DC input voltage in Charge Controller mode (DC
+             Photovoltaic Input). Range between 0 to (+)999V.
+             XXX means that the converter isn\'t communicating.
+             Value 11 in PV applications means inverted input
+             connection. RU measured positions from 37 to
+             48 (12 RUs).
+        -
+          uuid: ad06e021072d492488d662cf744a8da0
+          name: 'PHB::systemFuelLevel'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.20.0
+          key: .1.3.6.1.4.1.28636.2.20.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: "The magnitude of GMG fuel level in units of 1%.\r Range between 0% (Empty) to 100% (Full). The\r value 999 means that the sensor is disconnected\r or not working."
+        -
+          uuid: 7e9497f9b20b4ef7ae38385bb26546fe
+          name: 'PHB::systemETotal'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.21.0
+          key: .1.3.6.1.4.1.28636.2.21.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: "The magnitude of energy generate through the system\r in units of 1kWh. Range between 0 to XXXXXXXX."
+        -
+          uuid: c24fca1c5454492e9cf6dc8e7e8dbb7f
+          name: 'PHB::systemControllerEday'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.22.0
+          key: .1.3.6.1.4.1.28636.2.22.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the system RU/Controller Daily\r Energy in units of 0.1kWh. Range between 0 to\r 99.9kWh (0 to 999). The first 18 RU EDay monitored\r from Control Unit. XXX means that the RU isn\\'t\r communicating."
+        -
+          uuid: ba1dfd3f5c1448c0862a690281e2891e
+          name: 'PHB::systemControllerEday2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.23.0
+          key: .1.3.6.1.4.1.28636.2.23.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the system RU/Controller Daily\r Energy in units of 0.1kWh. Range between 0 to\r 99.9kWh (0 to 999). RU/Controller measured positions\r from 19 to 36 (18 RUs), XXX means that the RU\r isn\\'t communicating."
+        -
+          uuid: b53485a5910348c18421644157fa89a8
+          name: 'PHB::systemControllerEday3'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.24.0
+          key: .1.3.6.1.4.1.28636.2.24.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "The magnitude of the system RU/Controller Daily\r Energy in units of 0.1kWh. Range between 0 to\r 99.9kWh (0 to 999). RU/Controller measured positions\r from 37 to 48 (18 RUs), XXX means that the RU\r isn\\'t communicating."
+        -
+          uuid: 5722d6661a9a409c9665672f6cb44901
+          name: 'PHB::systemEDiaTotal'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.25.0
+          key: .1.3.6.1.4.1.28636.2.25.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: "The magnitude of energy generate through the system\r daily in units of 0.1kWh. Range between 0 to XXXXXXX.X."
+        -
+          uuid: 5c520242ed644bd892b8ec365f41a33e
+          name: 'PHB::cmdReset'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.1.0
+          key: .1.3.6.1.4.1.28636.4.1.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Reset Command Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: 6b08261879624a0aa50937e426d938eb
+          name: 'Status Controle do relé 1'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.2.0
+          key: .1.3.6.1.4.1.28636.4.2.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 1. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay1Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 33b9baa4e8874c9ca0908d65a5b09869
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.4.2.0)=1'
+              name: 'Status Controle do relé 1'
+              description: |
+                Controle do relé 1. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+                  - Contatos C-NC abertos, C-NO curto OFF - Contatos
+                  C-NC curto, C-NO aberto
+                 
+                  Obs.: Este controle só está disponível quando o
+                  relé não está associado a nenhum alarme.
+                
+                PHB::cmdRelay3Control
+        -
+          uuid: 1baf4e4b0d8f46a08dd4ed34d806949e
+          name: 'Status Controle do relé 2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.3.0
+          key: .1.3.6.1.4.1.28636.4.3.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 2. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay2Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 89cc69610af442d4be6538f1746bcaee
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.4.3.0)=1'
+              name: 'Status Controle do relé 2'
+              description: |
+                Controle do relé 2. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+                  - Contatos C-NC abertos, C-NO curto OFF - Contatos
+                  C-NC curto, C-NO aberto
+                 
+                  Obs.: Este controle só está disponível quando o
+                  relé não está associado a nenhum alarme.
+                
+                PHB::cmdRelay3Control
+        -
+          uuid: bf061fb6d1184b0887b2af467363513f
+          name: 'Status Controle do relé 3'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.4.0
+          key: .1.3.6.1.4.1.28636.4.4.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 3. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay3Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 6b0a1f6bceba439fa0a303f2476d2890
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.4.4.0)=1'
+              name: 'Status Controle do relé 3'
+              description: |
+                Controle do relé 3. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+                  - Contatos C-NC abertos, C-NO curto OFF - Contatos
+                  C-NC curto, C-NO aberto
+                 
+                  Obs.: Este controle só está disponível quando o
+                  relé não está associado a nenhum alarme.
+                
+                PHB::cmdRelay3Control
+        -
+          uuid: 31bba2f221db47dea3bf206d425924ce
+          name: 'Status Controle do relé 4'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.5.0
+          key: .1.3.6.1.4.1.28636.4.5.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 4. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay4Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 70481eb5b5c246f88e562e38753a4332
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.4.5.0)=1'
+              name: 'Status Controle do relé 4'
+              description: |
+                Controle do relé 4. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+                  - Contatos C-NC abertos, C-NO curto OFF - Contatos
+                  C-NC curto, C-NO aberto
+                 
+                  Obs.: Este controle só está disponível quando o
+                  relé não está associado a nenhum alarme.
+                
+                PHB::cmdRelay4Control
+        -
+          uuid: 38674fa0f43a43989a76ddc4d6a70862
+          name: 'Status Controle do relé 5'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.6.0
+          key: .1.3.6.1.4.1.28636.4.6.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Relay 5 Control. (=1)ON (=2)OFF (=3)UNUSED ON
+             - Contacts C-NC open, C-NO short OFF - Contacts
+             C-NC short, C-NO open
+             
+             Obs.: This control is only avaliable when the
+             relay is not associated with any alarm.
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: c3197ac0d5e74cdd908418c09babd84f
+          name: 'Status Controle do relé 6'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.7.0
+          key: .1.3.6.1.4.1.28636.4.7.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 1. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: 97c071f63f38491f8cbbd98c7a720d86
+          name: 'Status Controle do relé 7'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.8.0
+          key: .1.3.6.1.4.1.28636.4.8.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 7. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: 86eab4189f4a4eb68f45afba28d0602d
+          name: 'Status Controle do relé 8'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.9.0
+          key: .1.3.6.1.4.1.28636.4.9.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 8. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay1Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: e5b258bf2abf4503b16da4cd924f2b01
+          name: 'Status Controle do relé 9'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.4.10.0
+          key: .1.3.6.1.4.1.28636.4.10.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: |
+            Controle do relé 9. (=1)LIGADO (=2)DESLIGADO (=3) NÃO UTILIZADO LIGADO
+              - Contatos C-NC abertos, C-NO curto OFF - Contatos
+              C-NC curto, C-NO aberto
+             
+              Obs.: Este controle só está disponível quando o
+              relé não está associado a nenhum alarme.
+            
+            PHB::cmdRelay1Control
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: 4147348b83794f7da550074b0a0a9acf
+          name: 'Status do alarme reserva 1'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.1.0
+          key: .1.3.6.1.4.1.28636.5.1.1.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme sobressalente 1. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            Alarme Reserva/Extra
+            PHB::almSpare1
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: b6bd5fc68c954ba9ab995678448f356d
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.1.1.0)=1'
+              name: 'Status do alarme reserva 1'
+              priority: WARNING
+              description: |
+                Status do Alarme sobressalente 1. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                Alarme Reserva/Extra
+                PHB::almSpare1
+        -
+          uuid: f7ed0576133e49a0940d67c7c5893b35
+          name: 'Status do alarme reserva 2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.2.0
+          key: .1.3.6.1.4.1.28636.5.1.2.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme sobressalente 1. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            Alarme Reserva/Extra
+            
+            PHB::almSpare2
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: d5fa23b958334a7c8304a2ade07efef6
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.1.2.0)=1'
+              name: 'Status do alarme reserva 2'
+              priority: WARNING
+              description: |
+                Status do Alarme sobressalente 1. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                Alarme Reserva/Extra
+                
+                PHB::almSpare2
+        -
+          uuid: f2f6b11d7225459ba69829d393ab9c3a
+          name: 'Status do alarme reserva 3'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.3.0
+          key: .1.3.6.1.4.1.28636.5.1.3.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme sobressalente 3. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            Alarme Reserva/Extra
+            
+            PHB::almSpare3
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: f9c621b62d3d4b42920b2ffe2552a3e5
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.1.3.0)=1'
+              name: 'Status do alarme reserva 3'
+              priority: WARNING
+              description: |
+                Status do Alarme sobressalente 3. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                Alarme Reserva/Extra
+                
+                PHB::almSpare3
+        -
+          uuid: 9fc5421824844cf881e45ed1c5a0c08a
+          name: 'Status do alarme Resarva 4'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.4.0
+          key: .1.3.6.1.4.1.28636.5.1.4.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme sobressalente 4. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            Alarme Reserva/Extra
+            
+            PHB::almSpare4
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 4254ef855e66479b8ded6468aab1f8dc
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.1.4.0)=1'
+              name: 'Status do alarme Resarva 4'
+              priority: WARNING
+              description: |
+                Status do Alarme sobressalente 4. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                Alarme Reserva/Extra
+                
+                PHB::almSpare4
+        -
+          uuid: 2778e113644c4a82a6f4a43e22dcd776
+          name: 'PHB::almSpare5'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.5.0
+          key: .1.3.6.1.4.1.28636.5.1.5.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 5 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: f5839be076c74d42b140ccd87eb52ad7
+          name: 'PHB::almSpare6'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.6.0
+          key: .1.3.6.1.4.1.28636.5.1.6.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 6 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: ed4a263d73354bedaefb7f44ef2bb0cf
+          name: 'PHB::almSpare7'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.7.0
+          key: .1.3.6.1.4.1.28636.5.1.7.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 7 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: 61d33214916e46d6990b2601d669ea61
+          name: 'PHB::almSpare8'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.8.0
+          key: .1.3.6.1.4.1.28636.5.1.8.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 8 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: 7746bfdce4134936aaaca8ca04e6130a
+          name: 'PHB::almSpare9'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.9.0
+          key: .1.3.6.1.4.1.28636.5.1.9.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 9 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: 6d37b0edfe64478f9a7339104360c223
+          name: 'PHB::almSpare10'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.1.10.0
+          key: .1.3.6.1.4.1.28636.5.1.10.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: 'Spare Alarm 10 Status. (=1)ON (=2)OFF (=3)UNUSED'
+        -
+          uuid: 6a71a3b687d246c2b3b7a99cca022d60
+          name: 'Status do alarme de falha na tensão de rede'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.1.0
+          key: .1.3.6.1.4.1.28636.5.2.1.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de falha de rede. Está LIGADO quando a tensão de entrada da rede
+              está fora do alcance. Em alguns sistemas leva 60s
+              para confirmar que a rede está OK.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almMainsFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 5546ceb5b5c04c49abcade9fd5b28844
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.1.0)=1'
+              name: 'Status do alarme de falha na tensão de rede'
+              priority: WARNING
+              description: |
+                Status de falha de rede. Está LIGADO quando a tensão de entrada da rede
+                  está fora do alcance. Em alguns sistemas leva 60s
+                  para confirmar que a rede está OK.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almMainsFail
+        -
+          uuid: 56f86c9c0efd445e9b410ff8d8bdc86f
+          name: 'Status do alarme de falha de 1 RU'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.2.0
+          key: .1.3.6.1.4.1.28636.5.2.2.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de falha de 1 RU. Está LIGADO quando apenas UM Retificador
+            falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::alm1RUFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 120c1fd5151b433d91fbd527dcc27fc0
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.2.0)=1'
+              name: 'Status do alarme de falha de 1 RU'
+              priority: HIGH
+              description: |
+                Status de falha de 1 RU. Está LIGADO quando apenas UM Retificador
+                falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::alm1RUFail
+        -
+          uuid: e6a064a988d347d7a2477d937f5e2d91
+          name: 'Status do alarme de Mais de 1 RU'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.3.0
+          key: .1.3.6.1.4.1.28636.5.2.3.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Mais de 1 status de RU. Está LIGADO quando MAIS DE
+              UM Retificador falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almMore1RUFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: c1494e278d5443ed8a74043cbbaf0ef2
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.3.0)=1'
+              name: 'Status do alarme de Mais de 1 RU'
+              priority: HIGH
+              description: |
+                Mais de 1 status de RU. Está LIGADO quando MAIS DE
+                  UM Retificador falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almMore1RUFail
+        -
+          uuid: 69ded65fd19c442eb0619af8485fced2
+          name: 'Status do alarme Diretiva de Alta Voltagem 1'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.4.0
+          key: .1.3.6.1.4.1.28636.5.2.4.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            low voltage directive
+            diretiva de baixa voltagem
+            Status do Alarme LVD 1. Está LIGADO quando a subtensão
+              a desconexão acontece.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            PHB::almLVD1
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 9d06b7e33c284963a04bf47a68062386
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.4.0)=1'
+              name: 'Status do alarme Diretiva de Alta Voltagem 1'
+              priority: AVERAGE
+              description: |
+                low voltage directive
+                diretiva de baixa voltagem
+                Status do Alarme LVD 1. Está LIGADO quando a subtensão
+                  a desconexão acontece.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                PHB::almLVD1
+        -
+          uuid: b4acca6c20304d2aa6b8147e8cb03f8c
+          name: 'Status do alarme de descarga da bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.5.0
+          key: .1.3.6.1.4.1.28636.5.2.5.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          description: |
+            Status do alarme de descarga da bateria. Está LIGADO quando
+              a tensão da bateria está abaixo do valor configurado
+              de Descarga da Bateria LIGADA.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almBatOnDischarge
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 88a2e84faddf44b0a105f529a72b30e5
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.5.0)=1'
+              name: 'Status do alarme de descarga da bateria'
+              priority: WARNING
+              description: |
+                Status do alarme de descarga da bateria. Está LIGADO quando
+                  a tensão da bateria está abaixo do valor configurado
+                  de Descarga da Bateria LIGADA.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almBatOnDischarge
+        -
+          uuid: b9b212ff88a842478fcf04a43fc2eb0d
+          name: 'Status do alarme de disjuntor/fusível aberto'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.6.0
+          key: .1.3.6.1.4.1.28636.5.2.6.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de alarme de disjuntor/fusível aberto. Está LIGADO quando
+              um ou mais disjuntores/fusíveis estão abertos.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almBreakerOpen
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 2a05206ca8e74f0aab0ed47892ac6ed8
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.6.0)=1'
+              name: 'Status do alarme de disjuntor/fusível aberto'
+              priority: WARNING
+              description: |
+                Status de alarme de disjuntor/fusível aberto. Está LIGADO quando
+                  um ou mais disjuntores/fusíveis estão abertos.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almBreakerOpen
+        -
+          uuid: 60159d8bbab441e8b597ac5daacf82d8
+          name: 'Status do alarme de sobretensão CC'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.7.0
+          key: .1.3.6.1.4.1.28636.5.2.7.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme de sobretensão CC. Está LIGADO quando o
+              tensão de saída é maior do que a configurada
+              valor de sobretensão CC.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almDCOverVoltage
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: a5e91dd539d64bfe9e7e06dd4705695a
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.7.0)=1'
+              name: 'Status do alarme de sobretensão CC'
+              priority: WARNING
+              description: |
+                Status do alarme de sobretensão CC. Está LIGADO quando o
+                  tensão de saída é maior do que a configurada
+                  valor de sobretensão CC.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almDCOverVoltage
+        -
+          uuid: b35dc401c83f4517bbaafb437b8cc7f3
+          name: 'Status do alarme de falha da Unidade de Controle'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.8.0
+          key: .1.3.6.1.4.1.28636.5.2.8.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            "Estado de alarme de falha da Unidade de Controle. Está LIGADO quando a unidade de controle falha.
+                                        
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO USADO"
+            PHB::almControlUnitFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: d54cf7cbc0494ef6bd91acc2cbcada3c
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.8.0)=1'
+              name: 'Status do alarme de falha da Unidade de Controle'
+              priority: HIGH
+              description: |
+                "Estado de alarme de falha da Unidade de Controle. Está LIGADO quando a unidade de controle falha.
+                                            
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO USADO"
+                PHB::almControlUnitFail
+        -
+          uuid: 7f730bcc32d1438a82f00a8c98863ab1
+          name: 'Status do alarme de carga da bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.9.0
+          key: .1.3.6.1.4.1.28636.5.2.9.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          description: |
+            Status do alarme de carga da bateria. Está LIGADO quando
+              a bateria está em carga, nesta condição o
+              tensão de saída muda para equalizar a tensão.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almBatOnCharge
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 261c62acd0454366857cc3c603c75481
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.9.0)=1'
+              name: 'Status do alarme de temperatura alta/baixa'
+              status: DISABLED
+              priority: WARNING
+              description: |
+                Status do alarme de temperatura alta/baixa. Está LIGADO quando a temperatura do sensor interno é superior/inferior aos valores configurados. 
+                
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almHs LowTemp
+        -
+          uuid: a6eba8294327425595d30b363ebbb1bd
+          name: 'Status do alarme de temperatura alta/baixa'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.10.0
+          key: .1.3.6.1.4.1.28636.5.2.10.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          description: |
+            Status do alarme de temperatura alta/baixa. Está LIGADO quando a temperatura do sensor interno é superior/inferior aos valores configurados. 
+            
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almHs LowTemp
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 0fd0fb43b8c34c78ac0da2083aaa52d8
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.10.0)=1'
+              name: 'Status do alarme de temperatura alta/baixa'
+              status: DISABLED
+              priority: HIGH
+              description: |
+                Status do alarme de temperatura alta/baixa. Está LIGADO quando a temperatura do sensor interno é superior/inferior aos valores configurados. 
+                
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almHs LowTemp
+        -
+          uuid: a50ffce3b47f4132aa4ffe81c8f32a1b
+          name: 'Status do alarme de falha do ventilador do abrigo'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.11.0
+          key: .1.3.6.1.4.1.28636.5.2.11.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme de falha do ventilador do abrigo. Está LIGADO quando o
+              ventilador(es) do abrigo falha(m).
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            
+            PHB::almShelterFanFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 516336b14ddb4b25a6303f6df3206a62
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.11.0)=1'
+              name: 'Status do alarme de falha do ventilador do abrigo'
+              priority: HIGH
+              description: |
+                Status do alarme de falha do ventilador do abrigo. Está LIGADO quando o
+                  ventilador(es) do abrigo falha(m).
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                
+                PHB::almShelterFanFail
+        -
+          uuid: 036529ec7e744e8e9b34e8ff62089984
+          name: 'Status do alarme urgente'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.12.0
+          key: .1.3.6.1.4.1.28636.5.2.12.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          description: |
+            Status de alarme urgente. Está LIGADO quando um evento urgente
+              acontece.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almUrgente
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 36fa7f36e3b54bdd955f89f4091098db
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.12.0)=1'
+              name: 'Status do alarme urgente'
+              priority: DISASTER
+              description: |
+                Status de alarme urgente. Está LIGADO quando um evento urgente
+                  acontece.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almUrgente
+        -
+          uuid: c9dbe10c36a744e985bcdef81823573e
+          name: 'Status do alarme não urgente'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.13.0
+          key: .1.3.6.1.4.1.28636.5.2.13.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de alarme não urgente. Está LIGADO quando não é urgente
+              evento acontece.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almNotUrgent
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: 6baa112e6298484ea6a18d800270af86
+          name: 'Status do alarme do contator/relé 1'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.14.0
+          key: .1.3.6.1.4.1.28636.5.2.14.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme do contator/relé. Está LIGADO quando
+              o circuito de conexão/desconexão 1 falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almContactor1Fail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 0cf59a998c25404b90552d74ec887664
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.14.0)=1'
+              name: 'Status do alarme do contator/relé 1'
+              priority: WARNING
+              description: |
+                Status do alarme do contator/relé. Está LIGADO quando
+                  o circuito de conexão/desconexão 1 falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almContactor1Fail
+        -
+          uuid: 01d8aff2ec1d4a01ae5ab02b459b6dc7
+          name: 'Status do alarme do sensor CA'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.15.0
+          key: .1.3.6.1.4.1.28636.5.2.15.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme do sensor CA. Está LIGADO quando o Sensor CA
+              (Voltímetro CA) falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almCASensorFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: f0ee77e24dfb42e5a718f9c5b01a23f5
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.15.0)=1'
+              name: 'Status do alarme do sensor CA'
+              priority: WARNING
+              description: |
+                Status do alarme do sensor CA. Está LIGADO quando o Sensor CA
+                  (Voltímetro CA) falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almCASensorFail
+        -
+          uuid: 8c245220c45b4e6f81d7a4bccb12a2f5
+          name: 'Status do alarme do sensor de bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.16.0
+          key: .1.3.6.1.4.1.28636.5.2.16.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status atual do alarme do sensor de bateria. Está LIGADO
+              quando o circuito do sensor IBT falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almIBTSensorFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 8d1160af5520415885d855d181b88568
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.16.0)=1'
+              name: 'Status do alarme do sensor de bateria'
+              priority: HIGH
+              description: |
+                Status atual do alarme do sensor de bateria. Está LIGADO
+                  quando o circuito do sensor IBT falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+        -
+          uuid: cd8adc5b77124c2ab764df2d24fa8dd1
+          name: 'PHB::maintenance'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.17.0
+          key: .1.3.6.1.4.1.28636.5.2.17.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: FLOAT
+          description: "Maintenance Alarm Status. It is ON when the quantity\r of connected rectifiers is different from the\r configured rectifiers.\r \r (=1)ON (=2)OFF (=3)UNUSED"
+        -
+          uuid: b423e5405990446eb4a58c66dc4bdbce
+          name: 'Status do alarme da bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.18.0
+          key: .1.3.6.1.4.1.28636.5.2.18.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme da bateria. Está LIGADO quando isso acontece
+              uma falha com Bateria (String / Banco).
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almBatteryFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: ec1f272be9af4f4b8d692b3f04d488e4
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.18.0)=1'
+              name: 'Status do alarme da bateria'
+              priority: HIGH
+              description: |
+                Status do alarme da bateria. Está LIGADO quando isso acontece
+                  uma falha com Bateria (String / Banco).
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almBatteryFail
+        -
+          uuid: 647e3732070e4da2b5782037341ce1b6
+          name: 'Status do alarme de teste de bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.19.0
+          key: .1.3.6.1.4.1.28636.5.2.19.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme de teste de bateria. Está LIGADO quando a bateria
+              está sendo testado.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almBatteryTest
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: a940dce1b4bc4cb786f3e2d1260488a1
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.19.0)=1'
+              name: 'Status do alarme de teste de bateria'
+              priority: INFO
+              description: |
+                Status do alarme de teste de bateria. Está LIGADO quando a bateria
+                  está sendo testado.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almBatteryTest
+        -
+          uuid: c229115aaadf42769442e56e49aaa722
+          name: 'Status do alarme Diretiva de Alta Voltagem 2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.20.0
+          key: .1.3.6.1.4.1.28636.5.2.20.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            low voltage directive
+            Status do Alarme LVD 2. Está LIGADO quando a subtensão
+              a desconexão acontece.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            PHB::almLVD2
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: eb15b4023a7445538f034aea18793284
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.20.0)=1'
+              name: 'Status do alarme Diretiva de Alta Voltagem 2'
+              priority: AVERAGE
+              description: |
+                low voltage directive
+                Status do Alarme LVD 2. Está LIGADO quando a subtensão
+                  a desconexão acontece.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                PHB::almLVD2
+        -
+          uuid: 023b277ebd074c35a7259ea6ab60e1d0
+          name: 'Status do alarme do barramento CAN'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.21.0
+          key: .1.3.6.1.4.1.28636.5.2.21.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme do barramento CAN. Está LIGADO quando isso acontece
+              uma falha com CAN Bus.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almCANFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: e0dfe49725ad44cb97e1a78067d301a4
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.21.0)=1'
+              name: 'Status do alarme do barramento CAN'
+              priority: WARNING
+              description: |
+                Status do alarme do barramento CAN. Está LIGADO quando isso acontece
+                  uma falha com CAN Bus.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almCANFail
+        -
+          uuid: a41952ffd1a54ebc988e1c2255db7fe9
+          name: 'Status do alarme USB'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.22.0
+          key: .1.3.6.1.4.1.28636.5.2.22.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme USB. Está LIGADO quando ocorre uma falha
+              com interface USB.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almUSBFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: bc86564187fe475b952c89b6a416f61a
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.22.0)=3'
+              name: 'Status do alarme USB'
+              priority: INFO
+              description: |
+                Status do alarme USB. Está LIGADO quando ocorre uma falha
+                  com interface USB.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almUSBFail
+        -
+          uuid: bf83596103474712b51f4066435ccd0e
+          name: 'Status do alarme Ethernet'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.23.0
+          key: .1.3.6.1.4.1.28636.5.2.23.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme Ethernet. Está LIGADO quando acontece
+            uma falha com interface Ethernet.
+            
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almEthernetFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: d6519eedc50f4612bd16ed36fb5325af
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.23.0)=1'
+              name: 'Status do alarme Ethernet'
+              priority: AVERAGE
+              description: |
+                Status do alarme Ethernet. Está LIGADO quando acontece
+                uma falha com interface Ethernet.
+                
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almEthernetFail
+        -
+          uuid: 601f08832bd9439da0bf442af98a89d3
+          name: 'Status do alarme interface RS232'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.24.0
+          key: .1.3.6.1.4.1.28636.5.2.24.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme RS232. Está LIGADO quando acontece um
+              falha com interface RS232.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            
+            PHB::almRS232Fail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 00ec6dfa93e147b5a7a2d1f7cd729ed2
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.24.0)=1'
+              name: 'Status do alarme interface RS232'
+              priority: INFO
+              description: |
+                Status do Alarme RS232. Está LIGADO quando acontece um
+                  falha com interface RS232.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                
+                PHB::almRS232Fail
+        -
+          uuid: 8bf9dca0345a4533bc1585a7422d1d4c
+          name: 'Status do alarme RS485'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.25.0
+          key: .1.3.6.1.4.1.28636.5.2.25.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme RS485. Está LIGADO quando acontece um
+              falha com a interface RS485.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almRS485Fail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 8fe5c8196cfa4ba881cdc7e0e08fa162
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.25.0)=1'
+              name: 'Status do alarme RS485'
+              priority: INFO
+              description: |
+                Status do alarme RS485. Está LIGADO quando acontece um
+                  falha com a interface RS485.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almRS485Fail
+        -
+          uuid: 2fbdeeb2223046269e553b536272e184
+          name: 'Status do alarme do contator/relé 2'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.26.0
+          key: .1.3.6.1.4.1.28636.5.2.26.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme do contator/relé. Está LIGADO quando
+              o circuito de conexão/desconexão 2 falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almContactor2Fail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 25dc5313d424472dbb23ff0af62ec667
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.26.0)=1'
+              name: 'Status do alarme do contator/relé 2'
+              priority: WARNING
+              description: |
+                Status do alarme do contator/relé. Está LIGADO quando
+                  o circuito de conexão/desconexão 2 falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almContactor2Fail
+        -
+          uuid: 62a92995328f4cf3b193720b7e9c4d15
+          name: 'Status do alarme de Baixa Tensão da Bateria Simetria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.27.0
+          key: .1.3.6.1.4.1.28636.5.2.27.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do Alarme de Baixa Tensão da Bateria Simetria. Está LIGADO quando a tensão do bloco da bateria está fora da faixa da tensão média do bloco da bateria. Tem menor gravidade. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            
+            PHB::almSymLow
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 2547b9a3315e401a80ea67d5fa0cd092
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.27.0)=1'
+              name: 'Status do alarme de Baixa Tensão da Bateria Simetria'
+              priority: AVERAGE
+              description: |
+                Status do Alarme de Baixa Tensão da Bateria Simetria. Está LIGADO quando a tensão do bloco da bateria está fora da faixa da tensão média do bloco da bateria. Tem menor gravidade. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                
+                PHB::almSymLow
+        -
+          uuid: 96668fd083a44f989e79f6037d7b9cab
+          name: 'Status do alarme de alta tensão da bateria de simetria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.28.0
+          key: .1.3.6.1.4.1.28636.5.2.28.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme de alta tensão da bateria de simetria. Está LIGADO quando a tensão do bloco da bateria está fora da faixa da tensão média do bloco da bateria. Tem maior gravidade. 
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almSymHigh
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 78d4a128ade34447a8e8f41e62106d85
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.28.0)=1'
+              name: 'Status do alarme de alta tensão da bateria de simetria'
+              priority: WARNING
+              description: |
+                Status do alarme de alta tensão da bateria de simetria. Está LIGADO quando a tensão do bloco da bateria está fora da faixa da tensão média do bloco da bateria. Tem maior gravidade. 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almSymHigh
+        -
+          uuid: 1780661f21514896b1c1580bf7c7f46e
+          name: 'Status do alarme de alta tensão de flutuação (saída)'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.29.0
+          key: .1.3.6.1.4.1.28636.5.2.29.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de alarme de alta tensão de flutuação (saída). Isto é
+            LIGADO quando a tensão de saída é maior que a
+            valor configurado.
+             
+            (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almFloatHigh
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: cc587d27c5964982aeaef6a933d1704f
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.29.0)=1'
+              name: 'Status do alarme de alta tensão de flutuação (saída)'
+              priority: WARNING
+              description: |
+                Status de alarme de alta tensão de flutuação (saída). Isto é
+                LIGADO quando a tensão de saída é maior que a
+                valor configurado.
+                 
+                (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almFloatHigh
+        -
+          uuid: 311513859ee5453889e9de6cde5352ee
+          name: 'Status do alarme de baixa tensão de flutuação (saída)'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.30.0
+          key: .1.3.6.1.4.1.28636.5.2.30.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status de alarme de baixa tensão de flutuação (saída). Isto é
+              LIGADO quando a tensão de saída é menor que a
+              valor configurado.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almFloatLow
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: e63d95448c8c454ebe0099c5765bbf0f
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.30.0)=1'
+              name: 'Status do alarme de baixa tensão de flutuação (saída)'
+              priority: WARNING
+              description: |
+                Status de alarme de baixa tensão de flutuação (saída). Isto é
+                  LIGADO quando a tensão de saída é menor que a
+                  valor configurado.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almFloatLow
+        -
+          uuid: 4c0c6408622b47ba83ef1d7ed98b9778
+          name: 'Status do alarme atual da bateria delta'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.31.0
+          key: .1.3.6.1.4.1.28636.5.2.31.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme atual da bateria delta. Está LIGADO quando
+              a diferença (delta) de corrente entre a bateria
+              strings é maior que o valor configurado.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            PHB::almDeltaBatCurrent
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: d4da8a55f0fd445da1b7393f15228df2
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.31.0)=1'
+              name: 'Status do alarme atual da bateria delta'
+              priority: WARNING
+              description: |
+                Status do alarme atual da bateria delta. Está LIGADO quando
+                  a diferença (delta) de corrente entre a bateria
+                  strings é maior que o valor configurado.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                PHB::almDeltaBatCurrent
+        -
+          uuid: 0667e92db7fb4fd28d736ed8748085d7
+          name: 'Status do alarme do sensor de temperatura'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.32.0
+          key: .1.3.6.1.4.1.28636.5.2.32.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          value_type: FLOAT
+          description: |
+            Status do alarme do sensor de temperatura. Está LIGADO quando
+              o circuito de um ou mais sensores de temperatura
+              falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almTempSensFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+        -
+          uuid: bc070cbeb146432aabcdaa6db6d20bb8
+          name: 'Status do alarme de falha do conversor DCDC (Central / Step Up)'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.33.0
+          key: .1.3.6.1.4.1.28636.5.2.33.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          description: |
+            Status Alarme de falha do conversor DCDC (Central / Step Up). 
+            Está LIGADO quando um ou mais Conversores DCDC
+              falhou. Para aplicação de alimentação remota, este
+              a falha está associada ao módulo central.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almDCDCcentral
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: ca204e0623c24941b1ebc6be2f9f87d5
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.33.0)=1'
+              name: 'Status do alarme de falha do conversor DCDC (Central / Step Up)'
+              priority: WARNING
+              description: |
+                Status Alarme de falha do conversor DCDC (Central / Step Up). 
+                Está LIGADO quando um ou mais Conversores DCDC
+                  falhou. Para aplicação de alimentação remota, este
+                  a falha está associada ao módulo central.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almDCDCcentral
+        -
+          uuid: c027f08a32aa4d318dde67bd116cc82d
+          name: 'Status do alarme de falha do conversor DCDC (Remote / Step Down)'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.34.0
+          key: .1.3.6.1.4.1.28636.5.2.34.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          description: |
+            Status do Alarme de falha do conversor DCDC (Remote / Step Down)
+            . Está LIGADO quando um ou mais Conversores DCDC
+              falhou. Para aplicação de alimentação remota, este
+              a falha está associada ao módulo remoto.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almDCDCremoto
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: b0ae2010607b49119caa0a9b60febf3a
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.34.0)=1'
+              name: 'Status do alarme de falha do conversor DCDC (Remote / Step Down)'
+              priority: WARNING
+              description: |
+                Status do Alarme de falha do conversor DCDC (Remote / Step Down)
+                . Está LIGADO quando um ou mais Conversores DCDC
+                  falhou. Para aplicação de alimentação remota, este
+                  a falha está associada ao módulo remoto.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almDCDCremoto
+        -
+          uuid: e11dd584906c4bfc802551672cea3e0e
+          name: 'Status do alarme de falha do seletor de fonte'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.37.0
+          key: .1.3.6.1.4.1.28636.5.2.37.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          description: |
+            Status do alarme de falha do seletor de fonte. É usado em
+              Soluções de rede híbrida e OFF que alternam (selecionar)
+              Fontes AC ou PV para Retificadores/Controladores.
+              Está LIGADO quando um ou mais seletores de fonte falham. 
+            
+            PHB::almSourceSelectorFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 2626bf6fb64344d5829285f25f93f777
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.37.0)=1'
+              name: 'Status do alarme de falha do seletor de fonte'
+              priority: HIGH
+              description: |
+                Status do alarme de falha do seletor de fonte. É usado em
+                  Soluções de rede híbrida e OFF que alternam (selecionar)
+                  Fontes AC ou PV para Retificadores/Controladores.
+                  Está LIGADO quando um ou mais seletores de fonte falham. 
+                
+                PHB::almSourceSelectorFail
+        -
+          uuid: e8c1bc1f27b742dc814e531c715f89de
+          name: 'Status do alarme de falha GMG'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.38.0
+          key: .1.3.6.1.4.1.28636.5.2.38.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          description: |
+            Status do alarme de falha GMG. Está LIGADO quando um ou mais
+              GMG falha.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+            
+            PHB::almGMGFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 22757970bf144bf8953d3d54fde95afe
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.38.0)=1'
+              name: 'Status do alarme de falha GMG'
+              priority: WARNING
+              description: |
+                Status do alarme de falha GMG. Está LIGADO quando um ou mais
+                  GMG falha.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO
+                
+                PHB::almGMGFail
+        -
+          uuid: de63dfa7191644ac8d06cf22f6cef872
+          name: 'Status do alarme de falha do inversor na rede'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.5.2.39.0
+          key: .1.3.6.1.4.1.28636.5.2.39.0
+          delay: 5m
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          description: |
+            Status do alarme de falha do inversor na rede. Está LIGADO quando
+              um ou mais inversores (DC/AC) falham.
+             
+              (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+            PHB::almONGridInverterFail
+          valuemap:
+            name: 'alm 1=on, 2=off, 3= Disabled'
+          triggers:
+            -
+              uuid: 47adac2a75be49bda7f6222315a46503
+              expression: 'last(/Template SNMP PHB Retificadora/.1.3.6.1.4.1.28636.5.2.39.0)=1'
+              name: 'Status do alarme de falha do inversor na rede'
+              priority: DISASTER
+              description: |
+                Status do alarme de falha do inversor na rede. Está LIGADO quando
+                  um ou mais inversores (DC/AC) falham.
+                 
+                  (=1)LIGADO (=2)DESLIGADO (=3)NÃO UTILIZADO 
+                PHB::almONGridInverterFail
+        -
+          uuid: a8d6a20bb3a240f79fbadeedadc20e48
+          name: 'PHB::trapmessage'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.6.1.0
+          key: .1.3.6.1.4.1.28636.6.1.0
+          delay: 1h
+          history: 2w
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+          description: "This OID provide a mean to send message through\r Traps.\r \r It will answer 0 to a GET command."
+        -
+          uuid: 40b8699efe494968a0452004288ca839
+          name: 'Porcentagem da Bateria'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.28636.2.10.0
+          key: bat.porcent
+          delay: 5m
+          history: 2w
+          trends: '0'
+          units: '%'
+          description: |
+            The magnitude of the system Battery Capacity in
+             units of 1%. Range between 0% to 150%. The value
+             999 means that the Battery Capacity is not ready
+             to be read.
+            PHB::systemBatteryCapacity
+        -
+          uuid: 6a32558bb43844ba93b9e96b4aff4706
+          name: 'Corrente Modulos RU: 1'
+          type: DEPENDENT
+          key: corrente.1
+          delay: '0'
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              As primeiras 18 correntes RU monitoradas do Controle
+              Unidade. XXX significa que a RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),'
+                - \1
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |2
+                    return parseFloat(value) / 10.0;
+                  
+          master_item:
+            key: .1.3.6.1.4.1.28636.2.9.0
+        -
+          uuid: 78dd78bc02c646bf9727ebfaa468f273
+          name: 'Corrente Modulos RU: 2'
+          type: DEPENDENT
+          key: corrente.2
+          delay: '0'
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              As primeiras 18 correntes RU monitoradas do Controle
+              Unidade. XXX significa que a RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),'
+                - \2
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |2
+                    return parseFloat(value) / 10.0;
+                  
+          master_item:
+            key: .1.3.6.1.4.1.28636.2.9.0
+        -
+          uuid: 18abccadda6e42769e2d29c998ad57d0
+          name: 'Corrente Modulos RU: 3'
+          type: DEPENDENT
+          key: corrente.3
+          delay: '0'
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              As primeiras 18 correntes RU monitoradas do Controle
+              Unidade. XXX significa que a RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),'
+                - \3
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |2
+                    return parseFloat(value) / 10.0;
+                  
+          master_item:
+            key: .1.3.6.1.4.1.28636.2.9.0
+        -
+          uuid: c2887d31d3e940e3bb5e1735a2f202a0
+          name: 'Corrente Modulos RU: 4'
+          type: DEPENDENT
+          key: corrente.4
+          delay: '0'
+          history: 2w
+          trends: '0'
+          value_type: TEXT
+          description: |
+            A magnitude da corrente RU do sistema em unidades
+              de 0,1A. Faixa entre 0 a 99,9 A (0 a 999).
+              As primeiras 18 correntes RU monitoradas do Controle
+              Unidade. XXX significa que a RU não está se comunicando.
+            
+            PHB::systemRectifierCurrents
+          preprocessing:
+            -
+              type: REGEX
+              parameters:
+                - '(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),(\d{3}|X{3}),'
+                - \4
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |2
+                    return parseFloat(value) / 10.0;
+                  
+          master_item:
+            key: .1.3.6.1.4.1.28636.2.9.0
+        -
+          uuid: 1156f33ff7f34caabf4b497c2c1e61ff
+          name: 'Tempo estimado para zerar a Bateria'
+          type: CALCULATED
+          key: timeleft.bat.porcent
+          delay: 5m
+          history: 30d
+          trends: 90d
+          value_type: FLOAT
+          units: s
+          params: 'timeleft(//bat.porcent,2h,0)'
+          description: 'Tempo até que o valor do item chegue a zero com base dos dados das ultimas 2 horas.'
+          triggers:
+            -
+              uuid: 108d2093cb7b480397003f7ee75fecd5
+              expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=1h'
+              name: '{HOST.NAME} duração da bateria menor que 1 hora'
+              priority: DISASTER
+              description: 'duração da bateria menor que 1 hora'
+              dependencies:
+                -
+                  name: 'No SNMP data collection'
+                  expression: 'max(/Template SNMP PHB Retificadora/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+              tags:
+                -
+                  tag: ALARME
+                  value: CGR
+            -
+              uuid: 8069b97648db41eaa3491afb5563de35
+              expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=2h'
+              name: '{HOST.NAME} duração da bateria menor que 2 horas'
+              priority: AVERAGE
+              description: 'duração da bateria menor que 2 horas'
+              dependencies:
+                -
+                  name: 'No SNMP data collection'
+                  expression: 'max(/Template SNMP PHB Retificadora/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+                -
+                  name: '{HOST.NAME} duração da bateria menor que 1 hora'
+                  expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=1h'
+              tags:
+                -
+                  tag: ALARME
+                  value: CGR
+            -
+              uuid: 13cc1f0c821148d68dd4c25cf4712b0d
+              expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=3h'
+              name: '{HOST.NAME} duração da bateria menor que 3 horas'
+              priority: WARNING
+              description: 'duração da bateria menor que 3 horas'
+              dependencies:
+                -
+                  name: 'No SNMP data collection'
+                  expression: 'max(/Template SNMP PHB Retificadora/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+                -
+                  name: '{HOST.NAME} duração da bateria menor que 1 hora'
+                  expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=1h'
+                -
+                  name: '{HOST.NAME} duração da bateria menor que 2 horas'
+                  expression: 'last(/Template SNMP PHB Retificadora/timeleft.bat.porcent)<=2h'
+              tags:
+                -
+                  tag: ALARME
+                  value: CGR
+      tags:
+        -
+          tag: ALARME
+          value: ELETRICA
+      macros:
+        -
+          macro: '{$SNMP_PORT}'
+          value: '161'
+        -
+          macro: '{$TEN_ENT.MAX}'
+          value: '240'
+          description: 'Tensão de entrada'
+        -
+          macro: '{$TEN_ENT.MIN}'
+          value: '180'
+          description: 'Tensão de entrada MIN: 3 fase: 209/214 < 180 ou 1 fase: 127 < 95'
+      valuemaps:
+        -
+          uuid: e5263524c1a2470da368fc959e34c63a
+          name: 'alm 1=on, 2=off, 3= Disabled'
+          mappings:
+            -
+              value: '1'
+              newvalue: 'ON'
+            -
+              value: '2'
+              newvalue: 'OFF'
+            -
+              value: '3'
+              newvalue: DESATIVADO
+        -
+          uuid: 5f099c4f815346fba1a8e98e82ebddff
+          name: 'NET-SNMP-AGENT-MIB::nsCacheStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: enabled
+            -
+              value: '2'
+              newvalue: disabled
+            -
+              value: '3'
+              newvalue: empty
+            -
+              value: '4'
+              newvalue: cached
+            -
+              value: '5'
+              newvalue: expired
+        -
+          uuid: 2207fb3596ea4f759bd921d321f7d81b
+          name: 'NET-SNMP-AGENT-MIB::nsDebugTokenStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: active
+            -
+              value: '2'
+              newvalue: notInService
+            -
+              value: '3'
+              newvalue: notReady
+            -
+              value: '4'
+              newvalue: createAndGo
+            -
+              value: '5'
+              newvalue: createAndWait
+            -
+              value: '6'
+              newvalue: destroy
+        -
+          uuid: a8dd8fdbc05b4cb194d271e371e432f0
+          name: 'NET-SNMP-AGENT-MIB::nsLogMaxLevel'
+          mappings:
+            -
+              value: '0'
+              newvalue: emergency
+            -
+              value: '1'
+              newvalue: alert
+            -
+              value: '2'
+              newvalue: critical
+            -
+              value: '3'
+              newvalue: error
+            -
+              value: '4'
+              newvalue: warning
+            -
+              value: '5'
+              newvalue: notice
+            -
+              value: '6'
+              newvalue: info
+            -
+              value: '7'
+              newvalue: debug
+        -
+          uuid: b5e21a35a07e4e6585756038197e3dec
+          name: 'NET-SNMP-AGENT-MIB::nsLogStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: active
+            -
+              value: '2'
+              newvalue: notInService
+            -
+              value: '3'
+              newvalue: notReady
+            -
+              value: '4'
+              newvalue: createAndGo
+            -
+              value: '5'
+              newvalue: createAndWait
+            -
+              value: '6'
+              newvalue: destroy
+        -
+          uuid: 8a477075cd2b49328f3b89c1a22c5db5
+          name: 'NET-SNMP-AGENT-MIB::nsLogType'
+          mappings:
+            -
+              value: '1'
+              newvalue: stdout
+            -
+              value: '2'
+              newvalue: stderr
+            -
+              value: '3'
+              newvalue: file
+            -
+              value: '4'
+              newvalue: syslog
+            -
+              value: '5'
+              newvalue: callback
+        -
+          uuid: e9d11c0670ef48ecb76e348e7da93313
+          name: 'NET-SNMP-AGENT-MIB::nsModuleModes'
+          mappings:
+            -
+              value: '0'
+              newvalue: getAndGetNext
+            -
+              value: '1'
+              newvalue: set
+            -
+              value: '2'
+              newvalue: getBulk
+        -
+          uuid: c06458b1d8b146528cfb87d7461a8ab7
+          name: 'NET-SNMP-EXAMPLES-MIB::netSnmpHostAddressType'
+          mappings:
+            -
+              value: '0'
+              newvalue: unknown
+            -
+              value: '1'
+              newvalue: ipv4
+            -
+              value: '2'
+              newvalue: ipv6
+            -
+              value: '3'
+              newvalue: ipv4z
+            -
+              value: '4'
+              newvalue: ipv6z
+            -
+              value: '16'
+              newvalue: dns
+        -
+          uuid: ff4788255ba5442daf3a4d7c610668d3
+          name: 'NET-SNMP-EXAMPLES-MIB::netSnmpHostRowStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: active
+            -
+              value: '2'
+              newvalue: notInService
+            -
+              value: '3'
+              newvalue: notReady
+            -
+              value: '4'
+              newvalue: createAndGo
+            -
+              value: '5'
+              newvalue: createAndWait
+            -
+              value: '6'
+              newvalue: destroy
+        -
+          uuid: d14fa1d4f2954e0fb52e1b3a2d9cafc1
+          name: 'NET-SNMP-EXAMPLES-MIB::netSnmpHostStorage'
+          mappings:
+            -
+              value: '1'
+              newvalue: other
+            -
+              value: '2'
+              newvalue: volatile
+            -
+              value: '3'
+              newvalue: nonVolatile
+            -
+              value: '4'
+              newvalue: permanent
+            -
+              value: '5'
+              newvalue: readOnly
+        -
+          uuid: 3741de09fcc84a9ea853bafa31e8a209
+          name: 'NET-SNMP-EXTEND-MIB::nsExtendExecType'
+          mappings:
+            -
+              value: '1'
+              newvalue: exec
+            -
+              value: '2'
+              newvalue: shell
+        -
+          uuid: afcc07bcb8fb4ffdaa564318f8b62416
+          name: 'NET-SNMP-EXTEND-MIB::nsExtendRunType'
+          mappings:
+            -
+              value: '1'
+              newvalue: run_on_read
+            -
+              value: '2'
+              newvalue: run_on_set
+            -
+              value: '3'
+              newvalue: run_command
+        -
+          uuid: 6d70cbd39b1e42639b2bf08dc5f10cd5
+          name: 'NET-SNMP-EXTEND-MIB::nsExtendStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: active
+            -
+              value: '2'
+              newvalue: notInService
+            -
+              value: '3'
+              newvalue: notReady
+            -
+              value: '4'
+              newvalue: createAndGo
+            -
+              value: '5'
+              newvalue: createAndWait
+            -
+              value: '6'
+              newvalue: destroy
+        -
+          uuid: fed9f1f8db0649f98e24c976bb56a9a2
+          name: 'NET-SNMP-EXTEND-MIB::nsExtendStorage'
+          mappings:
+            -
+              value: '1'
+              newvalue: other
+            -
+              value: '2'
+              newvalue: volatile
+            -
+              value: '3'
+              newvalue: nonVolatile
+            -
+              value: '4'
+              newvalue: permanent
+            -
+              value: '5'
+              newvalue: readOnly
+        -
+          uuid: 12c542bfbf8e41878ee048f8ca4d282e
+          name: 'NET-SNMP-VACM-MIB::nsVacmContextMatch'
+          mappings:
+            -
+              value: '1'
+              newvalue: exact
+            -
+              value: '2'
+              newvalue: prefix
+        -
+          uuid: 95adf6d31a104858aba30875d9007647
+          name: 'NET-SNMP-VACM-MIB::nsVacmStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: active
+            -
+              value: '2'
+              newvalue: notInService
+            -
+              value: '3'
+              newvalue: notReady
+            -
+              value: '4'
+              newvalue: createAndGo
+            -
+              value: '5'
+              newvalue: createAndWait
+            -
+              value: '6'
+              newvalue: destroy
+        -
+          uuid: f2ebc3fffd0c4909bdd5990d220fb027
+          name: 'NET-SNMP-VACM-MIB::nsVacmStorageType'
+          mappings:
+            -
+              value: '1'
+              newvalue: other
+            -
+              value: '2'
+              newvalue: volatile
+            -
+              value: '3'
+              newvalue: nonVolatile
+            -
+              value: '4'
+              newvalue: permanent
+            -
+              value: '5'
+              newvalue: readOnly
+        -
+          uuid: 6b876f8d099741f7aa95533c0c562919
+          name: 'UCD-DLMOD-MIB::dlmodStatus'
+          mappings:
+            -
+              value: '1'
+              newvalue: loaded
+            -
+              value: '2'
+              newvalue: unloaded
+            -
+              value: '3'
+              newvalue: error
+            -
+              value: '4'
+              newvalue: load
+            -
+              value: '5'
+              newvalue: unload
+            -
+              value: '6'
+              newvalue: create
+            -
+              value: '7'
+              newvalue: delete
+        -
+          uuid: 2d0dc644599240229a6ed5bc99bd8185
+          name: 'UCD-SNMP-MIB::dskErrorFlag'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: error
+        -
+          uuid: 4c2d4e0bbe1e48ffb8b38fe2aba9f705
+          name: 'UCD-SNMP-MIB::extErrFix'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: runFix
+        -
+          uuid: b58963624de94ed6b470afe886a0ce37
+          name: 'UCD-SNMP-MIB::fileErrorFlag'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: error
+        -
+          uuid: 5750a7e7c3c24139b79b3cf7a8ed67aa
+          name: 'UCD-SNMP-MIB::laErrorFlag'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: error
+        -
+          uuid: f76f651cfffb4e978cafcb346e00ac7e
+          name: 'UCD-SNMP-MIB::logMatchErrorFlag'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: error
+        -
+          uuid: e979fbdc15ec4ed493bcd91d7bbf9ef4
+          name: 'UCD-SNMP-MIB::prErrFix'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: runFix
+        -
+          uuid: 7f2ac5070d804a02af2cc52b0aa9a2b5
+          name: 'UCD-SNMP-MIB::prErrorFlag'
+          mappings:
+            -
+              value: '0'
+              newvalue: noError
+            -
+              value: '1'
+              newvalue: error
