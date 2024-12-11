@@ -1,0 +1,298 @@
+zabbix_export:
+  version: '5.4'
+  date: '2024-12-11T16:06:41Z'
+  groups:
+    -
+      uuid: 6a9450e1dedd4380964d6fddc3dab4ca
+      name: Nokia
+  templates:
+    -
+      uuid: 48787ac8507041bf86b656db9608769d
+      template: 'Nokia Alcatel SNMPv2 - BGP'
+      name: 'Nokia Alcatel SNMPv2 - BGP'
+      description: |
+        Monitorar sessões BGP
+        Samuel Sampaio
+        Versão: 1.0.0
+      groups:
+        -
+          name: Nokia
+      items:
+        -
+          uuid: b7f4ee7c297a4955914952f14af8c3b9
+          name: 'Total IPv4 FIB Routes'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.4.24.3.0
+          key: hwIPv4FibRoutes
+          delay: 5m
+          history: 7d
+          trends: 30d
+          status: DISABLED
+          units: Prefixes
+          tags:
+            -
+              tag: BGP
+              value: 'TABELA DE ROTEAMENTO'
+        -
+          uuid: 168ca5a7889648c98970b716b472f8a6
+          name: 'Total IPv4 RIB Routes'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.2011.5.25.177.9.1.0
+          key: hwIPv4RibRoutes
+          delay: 5m
+          history: 7d
+          trends: 30d
+          status: DISABLED
+          units: Prefixes
+          tags:
+            -
+              tag: BGP
+              value: 'TABELA DE ROTEAMENTO'
+        -
+          uuid: c5898cece1924fab89b664fe1bdd854e
+          name: 'Total IPv6 FIB Routes'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.55.1.9.0
+          key: hwIPv6FibRoutes
+          delay: 5m
+          history: 7d
+          trends: 30d
+          status: DISABLED
+          units: Prefixes
+          tags:
+            -
+              tag: BGP
+              value: 'TABELA DE ROTEAMENTO'
+      discovery_rules:
+        -
+          uuid: 75eddeba7e654091b39ac246526b03c3
+          name: 'BGP4 Peer(s)'
+          type: SNMP_AGENT
+          snmp_oid: 'discovery[{#BGPPEER}, .1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4,{#ASNUM},.1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66,{#ADMSTATUS}, .1.3.6.1.4.1.6527.3.1.2.14.4.7.1.6,{#DESCR},.1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7]'
+          key: BgpPeerRemoteAddr
+          delay: 1h
+          filter:
+            conditions:
+              -
+                macro: '{#ADMSTATUS}'
+                value: '2'
+                formulaid: A
+          lifetime: 10d
+          item_prototypes:
+            -
+              uuid: 301f9ce59b6b484cb76d0a4379a96491
+              name: 'AS Name for IPv4 peer {#DESCR} - AS{#ASNUM}'
+              type: EXTERNAL
+              key: 'asname[{#SNMPINDEX},{HOST.IP},{#ASNUM}]'
+              delay: 1d
+              history: 30d
+              trends: '0'
+              status: DISABLED
+              discover: NO_DISCOVER
+              value_type: TEXT
+              description: |
+                as_name["-p",{#ASNUM}]
+                asname[{#BGPPEER},{HOST.IP},{#ASNUM}]
+              tags:
+                -
+                  tag: BGP
+                  value: 'BGP: ASN {#BGPPEER} - AS{#ASNUM}'
+                -
+                  tag: BGP
+                  value: 'Peer {#BGPPEER} - AS{#ASNUM}'
+            -
+              uuid: fb9f031c07034105ac0ed002f2797207
+              name: 'Established time for peer {#DESCR} - AS{#ASNUM}'
+              type: SNMP_AGENT
+              snmp_oid: '.1.3.6.1.4.1.6527.3.1.2.14.4.8.1.177.{#SNMPINDEX}'
+              key: 'BgpPeerFsmEstablishedTime[{#SNMPINDEX}]'
+              delay: 5m
+              history: 30d
+              trends: 90d
+              units: uptime
+              tags:
+                -
+                  tag: BGP
+                  value: 'BgpPeerFsmEstablishedTime {#BGPPEER} - AS{#ASNUM}'
+                -
+                  tag: BGP
+                  value: 'Peer {#BGPPEER} - AS{#ASNUM}'
+            -
+              uuid: 3a697551f3fb48ab95b6233fdcb77e49
+              name: 'Total routes from peer {#DESCR} - AS{#ASNUM}'
+              type: SNMP_AGENT
+              snmp_oid: '.1.3.6.1.4.1.6527.3.1.2.14.4.8.1.5.{#SNMPINDEX}'
+              key: 'BgpPeerRoutes[{#SNMPINDEX}]'
+              delay: 5m
+              history: 30d
+              trends: 90d
+              units: prefixes
+              tags:
+                -
+                  tag: BGP
+                  value: 'BgpPeerRoutes {#BGPPEER} - AS{#ASNUM}'
+                -
+                  tag: BGP
+                  value: 'Peer {#BGPPEER} - AS{#ASNUM}'
+            -
+              uuid: f6cb778c3cc14de1aed290749c9c66b9
+              name: 'Operational status for peer {#DESCR} - AS{#ASNUM}'
+              type: SNMP_AGENT
+              snmp_oid: '.1.3.6.1.4.1.6527.3.1.2.14.4.7.1.59.{#SNMPINDEX}'
+              key: 'BgpPeerState[{#SNMPINDEX}]'
+              delay: 5m
+              history: 30d
+              trends: 90d
+              valuemap:
+                name: BgpPeerState
+              tags:
+                -
+                  tag: BGP
+                  value: 'BgpPeerState {#BGPPEER} - AS{#ASNUM}'
+                -
+                  tag: BGP
+                  value: 'Peer {#BGPPEER} - AS{#ASNUM}'
+              trigger_prototypes:
+                -
+                  uuid: 25898c9aef1a4751b2b54370e39fdad4
+                  expression: 'last(/Nokia Alcatel SNMPv2 - BGP/BgpPeerState[{#SNMPINDEX}])<>6'
+                  name: 'Peer {#DESCR} - AS{#ASNUM} está DOWN !!!'
+                  priority: AVERAGE
+                  description: |
+                    Without the asname script working.
+                    Disable/Enable according to your use.
+                  tags:
+                    -
+                      tag: ALARME
+                      value: CGR
+            -
+              uuid: 8d67249cde1849a5bfd3a3e0b72b6e9e
+              name: 'Advertized Prefixes to peer {#DESCR} - AS{#ASNUM}'
+              type: SNMP_AGENT
+              snmp_oid: '.1.3.6.1.4.1.6527.3.1.2.14.4.8.1.6.{#SNMPINDEX}'
+              key: 'hwBgpPeerPrefixAdvCounter[{#SNMPINDEX}]'
+              delay: 5m
+              history: 30d
+              trends: 90d
+              units: prefixes
+              tags:
+                -
+                  tag: BGP
+                  value: 'hwBgpPeerPrefixAdvCounter {#BGPPEER} - AS{#ASNUM}'
+                -
+                  tag: BGP
+                  value: 'Peer {#BGPPEER} - AS{#ASNUM}'
+          trigger_prototypes:
+            -
+              uuid: 8f8c6ed2ad1845b882a8a99f6413c4df
+              expression: 'last(/Nokia Alcatel SNMPv2 - BGP/BgpPeerState[{#SNMPINDEX}])<>6 and ascii(last(/Nokia Alcatel SNMPv2 - BGP/asname[{#SNMPINDEX},{HOST.IP},{#ASNUM}]))<>0'
+              name: 'AS{#ASNUM} - Peer {#DESCR} está DOWN !!!'
+              status: DISABLED
+              discover: NO_DISCOVER
+              priority: AVERAGE
+              description: |
+                With the asname script working.
+                Disable/Enable according to your use.
+                {ITEM.VALUE2} > Peer {#BGPPEER} está DOWN !!!
+              tags:
+                -
+                  tag: ALARME
+                  value: CGR
+          graph_prototypes:
+            -
+              uuid: da381959aa1a40039fc745f500add649
+              name: 'Rotas recebidas {#DESCR} - AS{#ASNUM}'
+              show_work_period: 'NO'
+              show_triggers: 'NO'
+              graph_items:
+                -
+                  sortorder: '1'
+                  drawtype: GRADIENT_LINE
+                  color: 6A1B9A
+                  item:
+                    host: 'Nokia Alcatel SNMPv2 - BGP'
+                    key: 'BgpPeerRoutes[{#SNMPINDEX}]'
+      valuemaps:
+        -
+          uuid: dbe35e214dd74ceaae93e4d208e77150
+          name: BgpOperStatus
+          mappings:
+            -
+              value: '1'
+              newvalue: shutdown
+            -
+              value: '2'
+              newvalue: up
+        -
+          uuid: 51d89fa6a1064621bf06f48e1c88747b
+          name: BgpPeerState
+          mappings:
+            -
+              value: '1'
+              newvalue: idle
+            -
+              value: '2'
+              newvalue: connect
+            -
+              value: '3'
+              newvalue: active
+            -
+              value: '4'
+              newvalue: opensent
+            -
+              value: '5'
+              newvalue: openconfirm
+            -
+              value: '6'
+              newvalue: established
+  graphs:
+    -
+      uuid: b097d0034fb74a78a6d872080076c0b6
+      name: 'FIB - IPv4'
+      graph_items:
+        -
+          sortorder: '1'
+          drawtype: FILLED_REGION
+          color: 00EE00
+          item:
+            host: 'Nokia Alcatel SNMPv2 - BGP'
+            key: hwIPv4FibRoutes
+    -
+      uuid: 7816f774e3dc48b78a78f2dcdfe4d619
+      name: 'FIB - IPv6'
+      graph_items:
+        -
+          sortorder: '1'
+          color: F63100
+          item:
+            host: 'Nokia Alcatel SNMPv2 - BGP'
+            key: hwIPv6FibRoutes
+    -
+      uuid: 26c25b13c60f4f5e9c88396772602fd2
+      name: 'RIB - IPv4'
+      graph_items:
+        -
+          sortorder: '1'
+          drawtype: FILLED_REGION
+          color: EE0000
+          item:
+            host: 'Nokia Alcatel SNMPv2 - BGP'
+            key: hwIPv4RibRoutes
+    -
+      uuid: 3929e2017bc74b0ca4ff837414592fd4
+      name: 'RIB x FIB - IPv4'
+      graph_items:
+        -
+          sortorder: '1'
+          drawtype: BOLD_LINE
+          color: 00EE00
+          item:
+            host: 'Nokia Alcatel SNMPv2 - BGP'
+            key: hwIPv4FibRoutes
+        -
+          sortorder: '2'
+          drawtype: BOLD_LINE
+          color: EE0000
+          item:
+            host: 'Nokia Alcatel SNMPv2 - BGP'
+            key: hwIPv4RibRoutes
